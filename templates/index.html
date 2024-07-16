@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>URL Shortener</title>
+  </head>
+  <body>
+    <h1><center>Welcome to the URL Shortener</center></h1>
+    <center>
+      <form method="POST" action="{{ url_for('index') }}">
+        <input
+          type="text"
+          name="original_url"
+          placeholder="Enter your long URL"
+        /><br />
+        <br />
+        <button
+          type="submit"
+          style="background-color: rgb(7, 243, 192); color: rgb(5, 5, 5)"
+        >
+          Shorten
+        </button>
+      </form>
+    </center>
+  </body>
+</html>
