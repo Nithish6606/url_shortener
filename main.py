@@ -8,12 +8,14 @@ shortend_urls: dict = {}
 
 
 def generate_short_url(length: int = 6) -> str:
+    '''This Function generates a random string of length 6(default)'''
     chars = string.ascii_letters+string.digits
     return ''.join(random.choice(chars) for _ in range(length))
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    '''This Function handles the GET and POST requests for the root page'''
     if request.method == 'POST':
         original_url = request.form['original_url']
         short_url = generate_short_url()
@@ -27,6 +29,7 @@ def index():
 
 @app.route('/<short_url>')
 def redirect_to_url(short_url: str):
+    '''This Function redirects to the original URL'''
     original_url = shortend_urls.get(short_url)
     if original_url:
         return redirect(original_url)
